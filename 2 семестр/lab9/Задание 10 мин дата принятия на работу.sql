@@ -1,0 +1,1 @@
+SELECT min("ДатаПринятияНаРаботу") FROM Faculty.teacher;

@@ -1,0 +1,1 @@
+ALTER TABLE Faculty.teacher ALTER COLUMN "ДатаПринятияНаРаботу" SET DEFAULT CURRENT_DATE;
