@@ -1,6 +1,6 @@
 --Создание представлений
 --Задание 1
-CREATE VIEW faculty.infoStudents
+CREATE OR REPLACE VIEW faculty.infoStudents
 AS
 SELECT s."НомерЗачетнойКнижки" AS "Зачетка",
 	s."Фамилия" || ' ' || LEFT(s."Имя", 1) || '. ' || LEFT(s."Отчество", 1) || '.' AS "ФИО",
@@ -9,7 +9,7 @@ FROM faculty.student s;
 
 --Задание 2
 --а)
-CREATE VIEW faculty."Занятость кабинетов"
+CREATE OR REPLACE VIEW faculty."Занятость кабинетов"
 AS
 SELECT
 	l."Аудитория",
@@ -18,7 +18,7 @@ FROM faculty.lesson l
 GROUP BY l."Аудитория";
 
 --б)
-CREATE VIEW faculty."Занятость кабинетов 2"
+CREATE OR REPLACE VIEW faculty."Занятость кабинетов 2"
 AS
 SELECT
 	l."Аудитория",
@@ -29,7 +29,7 @@ ORDER BY COUNT(l."Аудитория") ASC
 LIMIT 3;
 
 --Задание 3
-CREATE VIEW faculty."Статистика успеваемости"
+CREATE OR REPLACE VIEW faculty."Статистика успеваемости"
 AS
 SELECT
 	EXTRACT(YEAR FROM m."Дата") AS "Год",
@@ -41,7 +41,7 @@ WHERE m."Оценка" NOT IN ('зачет', 'незачет')
 GROUP BY EXTRACT(YEAR FROM m."Дата"), EXTRACT(MONTH FROM m."Дата");
 
 --Задание 4
-CREATE VIEW faculty."Дни рождения студентов"
+CREATE OR REPLACE VIEW faculty."Дни рождения студентов"
 AS
 SELECT
 	CASE
@@ -57,7 +57,7 @@ WHERE NOT(s."ДатаРождения" IS NULL)
 GROUP BY "Сезон";
 
 --Задание 5
-CREATE VIEW faculty."Количество сдавших сессию"
+CREATE OR REPLACE VIEW faculty."Количество сдавших сессию"
 AS
 SELECT
 	CASE
