@@ -29,7 +29,7 @@ LANGUAGE SQL;
 SELECT * FROM faculty.comp_classroomlist('16');
 
 --Задание 3
-REATE OR REPLACE FUNCTION faculty.avg_gpa_list(
+CREATE OR REPLACE FUNCTION faculty.avg_gpa_list(
 	IN surname_ VARCHAR(100),
 	IN firstname_ VARCHAR(100),
 	IN secondname_ VARCHAR(100)
